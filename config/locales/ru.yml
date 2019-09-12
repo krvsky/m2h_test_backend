@@ -1,0 +1,5 @@
+ru:
+  activerecord:
+    errors:
+      messages:
+        already_exist: Уже существует
