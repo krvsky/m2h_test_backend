@@ -1,5 +1,6 @@
 class Category < ApplicationRecord
   include AASM
+  include Notificable
 
   aasm column: 'state' do
     state :active, initial: true

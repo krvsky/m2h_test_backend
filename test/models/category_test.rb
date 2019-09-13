@@ -14,4 +14,10 @@ class CategoryTest < ActiveSupport::TestCase
     vertical = Category.create(name: Vertical.first.name)
     assert_equal vertical.errors[:name].first, I18n.t('activerecord.errors.messages.already_exist')
   end
+
+  test 'send email after create' do
+    category = Category.new(name: Faker::Name.name)
+    category.expects(:send_email_notification)
+    category.save
+  end
 end

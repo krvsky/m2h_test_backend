@@ -9,4 +9,10 @@ class CourseTest < ActiveSupport::TestCase
     should validate_presence_of(:name)
     should validate_presence_of(:author)
   end
+
+  test 'send email after create' do
+    course = Course.new(name: Faker::Name.name, author: Faker::Name.name)
+    course.expects(:send_email_notification)
+    course.save
+  end
 end
